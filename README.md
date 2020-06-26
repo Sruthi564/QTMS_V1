@@ -1,7 +1,6 @@
 # AHV_Scheduler
 
-QTMS V1
-This is QTMS and used to trigger runs on regression pool.
+This is QTMS v1 and used to trigger runs on regression pool.
 
 How to start using this tool:
 
