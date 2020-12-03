@@ -173,7 +173,7 @@ class QTMS(object):
                     branch = self.reg_handedover_tasks[0][0]['branch']
                     #tasks = self.reg_handedover_tasks
                     #jita_task_link = self.reg_handedover_tasks_link
-                    emails = ['bhawani.singh@nutanix.com', 'velurusruthi.naidu@nutanix.com', 'ritopa.dey@nutanix.com','jayanthi.r@nutanix.com']
+                    emails = ['saurabh.jain@nutanix.com', 'velurusruthi.naidu@nutanix.com', 'ritopa.dey@nutanix.com','jayanthi.r@nutanix.com']
                     email_text = 'Acropolis Regression Reg Handedover Test Run Details'
                     email_msg = 'Acropolis Regression Reg Handedover Test Run Details'
                     print ("Sending email for Reg Handedover Test runs: {}".format(self.reg_handedover_tasks_link))
@@ -280,9 +280,9 @@ if __name__ == '__main__':
 #    qtms_execute.kill_tasks(tasks)
 #    qtms_execute.jita.get_jita_testset("AHV_Regression_Uhura_GoldSuite")
 
-    task_url = "https://jita.eng.nutanix.com/results?agave_task_ids=5ef3159a8e79ce887f767320,5ef3159b2bc0c465e1723f96,5ef3159c8e79ce1954e08989,5ef3159e8e79ce1409acdfea,5ef3159f8e79ce888b92a129"
-    #qtms_execute.mark_tasks_official(task_url)
-    qtms_execute.kill_tasks(task_url)
+    task_url ="https://jita.eng.nutanix.com/results?agave_task_ids=5fbbd2852bc0c444caa0b5ed,5fbbd2852bc0c444caa0b5ed,5fbbd2862bc0c444caa0b5f4,5fbbd2882bc0c444caa0b613,5fbbd28a2bc0c444caa0b61c,5fbbd28c2bc0c444caa0b620,5fbbd28d2bc0c444caa0b628"
+    qtms_execute.mark_tasks_official(task_url)
+    #qtms_execute.kill_tasks(task_url)
 
 ###
 
