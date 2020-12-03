@@ -13,10 +13,10 @@ SCALE_OUT_POOL_NAME = [u'acropolis_scale_Testing']
 
 
 PC_URL = u'http://endor.dyn.nutanix.com/builds/PC-builds/' + PC_REL_BRANCH + '/'
-PC_COMMIT_ID = "a293ab50dcd9cef67a106175ee6137cda89911d1"
+PC_COMMIT_ID = "1e08eac6e371f6658dfc95a516cd876ce7b7b035"
 
 
-NOS_COMMIT_ID = "a293ab50dcd9cef67a106175ee6137cda89911d1"
+NOS_COMMIT_ID = "1e08eac6e371f6658dfc95a516cd876ce7b7b035"
 
 
 #SKIP_COMMIT_VALIDATION = u'on'
@@ -36,6 +36,8 @@ BUILD_FOLDERS = 'x86_64'
 #BUILD_TYPE = 'opt'
 BUILD_TYPE = 'release'
 
+V2 = "v2"
+PC_DOMAIN_NAME = "pc1.nutanix.com"
 
 USE_NOS_BY_COMMIT_ID = {
     u'build_type': BUILD_TYPE,
@@ -161,6 +163,7 @@ ACROPOLIS_PAYLOAD_MASTER['resource_manager_json'] = dict(PRISM_CENTRAL={
         u'nos_build_url': PC_URL + PC_COMMIT_ID + '/' + BUILD_TYPE + '/'
     }
 })
+
 
 ACROPOLIS_PAYLOAD_PC_MASTER = ACROPOLIS_PAYLOAD_MASTER.copy()
 
@@ -322,6 +325,17 @@ ACROPOLIS_PAYLOAD_PC_CATALOG_HYPERVISOR_ANY_MASTER[u'requested_hardware'] = {
         u'hypervisor_url': ''
     }
 }
+ACROPOLIS_PAYLOAD_PC_CATALOG_IAMV2 = ACROPOLIS_PAYLOAD_PC_MASTER.copy()
+ACROPOLIS_PAYLOAD_PC_CATALOG_IAMV2['resource_manager_json'] = dict(PRISM_CENTRAL={
+   u'scaleout': {
+        u'enable_cmsp': True,
+        u'iam': V2,
+        u'pc_domain_name': PC_DOMAIN_NAME
+    },
+   u'build': {
+       u'nos_build_url': PC_URL + PC_COMMIT_ID + '/' + BUILD_TYPE + '/'
+   }
+})
 
 ACROPOLIS_PAYLOAD_PC_CATALOG_ESX_MASTER = ACROPOLIS_PAYLOAD_PC_CATALOG_MASTER.copy()
 ACROPOLIS_PAYLOAD_PC_CATALOG_ESX_MASTER[u'requested_hardware'] = {
