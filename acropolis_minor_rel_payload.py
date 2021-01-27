@@ -31,16 +31,39 @@
 #OBELIX_BRANCH = u'obelix'
 
 
-NUTEST_BRANCH = u'euphrates-5.19-stable'
-AOS_REL_BRANCH = u'euphrates-5.15.4-stable'
-PC_REL_BRANCH = u'euphrates-5.19-stable-pc-0'
+#NUTEST_BRANCH = u'euphrates-5.10-stable'
+#AOS_REL_BRANCH = u'euphrates-5.10.11-stable'
+#PC_REL_BRANCH = u'euphrates-5.10.11-stable'
+#OBELIX_BRANCH = u'obelix_5.10'
+
+
+# NUTEST_BRANCH = u'euphrates-5.15-stable'
+# AOS_REL_BRANCH = u'euphrates-5.15.2-stable'
+# PC_REL_BRANCH = u'euphrates-5.15.2-stable'
+# OBELIX_BRANCH = u'obelix_5.15'
+
+# NUTEST_BRANCH = u'euphrates-5.15-stable'
+# AOS_REL_BRANCH = u'euphrates-5.15.3-stable'
+# PC_REL_BRANCH = u'euphrates-5.15.3-stable'
+# OBELIX_BRANCH = u'obelix_5.15'
+
+NUTEST_BRANCH = u'euphrates-5.15-stable'
+AOS_REL_BRANCH = u'euphrates-5.15.5-stable'
+PC_REL_BRANCH = u'euphrates-5.15.5-stable'
 OBELIX_BRANCH = u'obelix_5.15'
 
+# NUTEST_BRANCH = u'euphrates-5.19-stable'
+# AOS_REL_BRANCH = u'euphrates-5.19.1-stable'
+# PC_REL_BRANCH = u'euphrates-5.19-stable-pc-1'
+# OBELIX_BRANCH = u'dogmatix_5.19'
+# PC_OBELIX_BRANCH = u'euphrates-5.19-stable-pc-1'
 
-#NUTEST_BRANCH = u'euphrates-5.15-stable'
-#AOS_REL_BRANCH = u'euphrates-5.15.2-stable'
-#PC_REL_BRANCH = u'euphrates-5.15.2-stable'
-#OBELIX_BRANCH = u'obelix'
+
+# NUTEST_BRANCH = u'euphrates-5.18-stable'
+# AOS_REL_BRANCH = u'euphrates-5.18.1-stable'
+# PC_REL_BRANCH = u'euphrates-5.18-stable-pc-1'
+# OBELIX_BRANCH = u'dogmatix_5.18'
+# PC_OBELIX_BRANCH = u'euphrates-5.18-stable-pc-1'
 
 
 #NUTEST_BRANCH = u'euphrates-5.17-stable'
@@ -58,6 +81,7 @@ OBELIX_BRANCH = u'obelix_5.15'
 #POOL_NAME = [u'AHV-REG-NODE-POOL-MASTER']
 GPU_POOL_NAME = [u'ahv-gpu-regression']
 POOL_NAME = [u'AHV_NODE_POOL_OSL']
+MAX_TEST_POOL_NAME = [u'ahv-maximum']
 
 
 BUILD_FOLDERS = 'x86_64'
@@ -66,9 +90,9 @@ BUILD_TYPE = 'release'
 
 NOS_URL = ''
 
-HYPERVISOR_BUILD_URL = ''
+# HYPERVISOR_BUILD_URL = ''
 
-#HYPERVISOR_BUILD_URL = 'http://endor.dyn.nutanix.com/builds/ahv-builds/20190916.231/iso/AHV-DVD-x86_64-el7.nutanix.20190916.231.iso'
+HYPERVISOR_BUILD_URL = 'http://endor.dyn.nutanix.com/GoldImages/AHV/20190916.294/iso/AHV-DVD-x86_64-el7.nutanix.20190916.294.iso'
 
 #NOS_URL = 'http://endor.dyn.nutanix.com/releases/Euphrates-5.15-stable-RC1/f322bb1e20845aadc476b89eaf0647397e8a3222/x86_64/opt/tar/nutanix_installer_package-opt-euphrates-5.15-stable-f322bb1e20845aadc476b89eaf0647397e8a3222-x86_64.tar.gz'
 
@@ -79,9 +103,9 @@ FOUNDATION_BUILD_URL = ''
 PC_URL = u'http://endor.dyn.nutanix.com/builds/PC-builds/' + PC_REL_BRANCH + '/'
 
 
-PC_COMMIT_ID = '37074216edfb0d13269874c8dffb7a0aa68fd314'
+PC_COMMIT_ID = 'd0773d2b870c9cf249d8cf8f620bb781287080dd'
 
-NOS_COMMIT_ID = '3218a31e15584e368dc4c9b7abc4d99da585c8d2'
+NOS_COMMIT_ID = 'd0773d2b870c9cf249d8cf8f620bb781287080dd'
 
 
 USE_NOS_BY_COMMIT_ID = {
@@ -193,6 +217,13 @@ ACROPOLIS_PAYLOAD_GPU_MINOR_REL['cluster_selection'] = {
 ACROPOLIS_PAYLOAD_GPU_MINOR_REL['tester_tags'] = [u'v3.1', u'max_deployments__1', u'official']
 #ACROPOLIS_PAYLOAD_GPU_MINOR_REL['tester_tags'] = [u'v3.1', u'max_deployments__1']
 
+ACROPOLIS_PAYLOAD_GPU_PC_MINOR_REL = ACROPOLIS_PAYLOAD_PC_MINOR_REL.copy()
+ACROPOLIS_PAYLOAD_GPU_PC_MINOR_REL['tester_tags'] = [u'v3.1', u'max_deployments__4', u'official']
+ACROPOLIS_PAYLOAD_GPU_PC_MINOR_REL['cluster_selection'] = {
+        u'pool_name': GPU_POOL_NAME,
+        u'by_node_pool': True
+}
+
 ACROPOLIS_PAYLOAD_VNUMA_MINOR_REL = ACROPOLIS_PAYLOAD_NO_PC_MINOR_REL.copy()
 ACROPOLIS_PAYLOAD_VNUMA_MINOR_REL['cluster_selection'] = {
         u'pool_name': POOL_NAME,
@@ -276,6 +307,29 @@ ACROPOLIS_PAYLOAD_NO_PC_MINOR_REL[u'requested_hardware'] = {
         u'hypervisor_url': HYPERVISOR_BUILD_URL
     }
 }
+
+
+ACROPOLIS_PAYLOAD_PC_UI_MINOR_REL = ACROPOLIS_PAYLOAD_MINOR_REL.copy()
+ACROPOLIS_PAYLOAD_PC_UI_MINOR_REL['resource_manager_json'] = dict(
+    PRISM_CENTRAL={
+    u'build': {
+        u'nos_build_url': PC_URL + PC_COMMIT_ID + '/' + BUILD_TYPE + '/'
+    }},
+    SELENIUM_VM = {
+    "software": {
+        "build_url": "http://endor.dyn.nutanix.com/GoldImages/selenlium_windows_image/selenium_auto_start_win7.img"
+    }
+}
+)
+
+ACROPOLIS_PAYLOAD_PC_MAX_MINOR_REL = ACROPOLIS_PAYLOAD_PC_MINOR_REL.copy()
+ACROPOLIS_PAYLOAD_PC_MAX_MINOR_REL['cluster_selection'] = {
+        u'pool_name': MAX_TEST_POOL_NAME,
+        u'by_node_pool': True
+}
+ACROPOLIS_PAYLOAD_PC_MAX_MINOR_REL['tester_tags'] = [u'infra__systest', u'nutest',u'container_unlimited, sched_alpha', u'official']
+ACROPOLIS_PAYLOAD_PC_MAX_MINOR_REL['patch_url'] = u'https://gerrit.eng.nutanix.com/changes/447846/revisions/4a9ba06cd33486eea24a18291ad0fde9d28ce9a6/patch?zip'
+
 ACROPOLIS_PAYLOAD_PC_CATALOG_MINOR = ACROPOLIS_PAYLOAD_MINOR_REL.copy()
 ACROPOLIS_PAYLOAD_PC_CATALOG_MINOR["emails"] = [u'velurusruthi.naidu@nutanix.com', u'bhawani.singh@nutanix.com',
                                                 u'acropolis-catalog@nutanix.com', u'vivekanandan.k@nutanix.com']
