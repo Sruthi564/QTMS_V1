@@ -11,9 +11,9 @@
 #AOS_REL_BRANCH = u'euphrates-5.17-stable'
 #PC_REL_BRANCH = u'euphrates-5.17-stable'
 
-NUTEST_BRANCH = u'euphrates-5.18-stable'
-AOS_REL_BRANCH = u'euphrates-5.18-stable'
-PC_REL_BRANCH = u'euphrates-5.18-stable'
+NUTEST_BRANCH = u'euphrates-5.19-stable'
+AOS_REL_BRANCH = u'euphrates-5.19.1-stable'
+PC_REL_BRANCH = u'euphrates-5.19-stable-pc-1'
 
 #POOL_NAME = [u'AHV-REG-NODE-POOL-MASTER']
 GPU_POOL_NAME = [u'ahv-gpu-regression']
@@ -26,9 +26,9 @@ BUILD_TYPE = 'release'
 NOS_URL = ''
 
 PC_URL = u'http://endor.dyn.nutanix.com/builds/PC-builds/' + PC_REL_BRANCH + '/'
-PC_COMMIT_ID = 'fe408330e561dd638d36115ec3b79eb80ccfa1aa'
+PC_COMMIT_ID = 'd16f9f491e077eb8f1d7382ed37ebc8cb736513d'
 
-NOS_COMMIT_ID = 'fe408330e561dd638d36115ec3b79eb80ccfa1aa'
+NOS_COMMIT_ID = '20bdb87735f6e7cd227572085854461932b7af6c'
 
 
 
@@ -121,6 +121,28 @@ UHURA_PAYLOAD_MAJOR_REL['resource_manager_json'] = dict(PRISM_CENTRAL={
 })
 UHURA_PAYLOAD_PC_MAJOR_REL = UHURA_PAYLOAD_MAJOR_REL
 UHURA_PAYLOAD_PC_MAJOR_REL['services'] = [u'NOS', u'PC']
+
+UHURA_PAYLOAD_ERGON_PC_MAJOR_REL = UHURA_PAYLOAD_PC_MAJOR_REL.copy()
+UHURA_PAYLOAD_ERGON_PC_MAJOR_REL[u'requested_hardware'] = {
+    u'hypervisor_version': None,
+    u'hypervisor': None,
+    u'imaging_options': {
+        u'datacenter': {
+            u'hyperv': {},
+            u'kvm': {},
+            u'vsphere': {},
+            u'use_host_names': False
+        },
+        u'min_host_cpu_cores': 6,
+        u'min_host_gb_ram': 30,
+        u'nos_url': NOS_URL,
+        u'redundancy_factor': u'default',
+        u'secondary_datacenters': {
+            u'vsphere': {}
+        },
+        u'hypervisor_url': ''
+    }
+}
 
 UHURA_PAYLOAD_NO_PC_NO_VC_MAJOR_REL = {k: v for (k, v) in UHURA_PAYLOAD_MAJOR_REL.items() if k != 'resource_manager_json'}
 UHURA_PAYLOAD_NO_PC_NO_VC_MAJOR_REL['services'] = [u'NOS']
