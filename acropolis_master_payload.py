@@ -9,14 +9,15 @@ GPU_POOL_NAME = [u'ahv-gpu-regression']
 POOL_NAME = [u'AHV_NODE_POOL_OSL']
 DUMMY_POOL = [u'AHV-REG-NODE-POOL-MASTER']
 SCALE_OUT_POOL_NAME = [u'acropolis_scale_Testing']
+MAX_TEST_POOL_NAME = [u'ahv-maximum']
 
 
 
 PC_URL = u'http://endor.dyn.nutanix.com/builds/PC-builds/' + PC_REL_BRANCH + '/'
-PC_COMMIT_ID = "1e08eac6e371f6658dfc95a516cd876ce7b7b035"
+PC_COMMIT_ID = "b322f2711c7293ae1adc2e9133c99a8cca4838cf"
 
 
-NOS_COMMIT_ID = "1e08eac6e371f6658dfc95a516cd876ce7b7b035"
+NOS_COMMIT_ID = "b322f2711c7293ae1adc2e9133c99a8cca4838cf"
 
 
 #SKIP_COMMIT_VALIDATION = u'on'
@@ -33,7 +34,7 @@ HYPERVISOR_URL = ''
 
 
 BUILD_FOLDERS = 'x86_64'
-#BUILD_TYPE = 'opt'
+# BUILD_TYPE = 'opt'
 BUILD_TYPE = 'release'
 
 V2 = "v2"
@@ -85,33 +86,32 @@ ACROPOLIS_PAYLOAD_MASTER['plugins'] = {u'post_run': [
         ],
          u'pre_run': []
 }
-
+#
 # ACROPOLIS_PAYLOAD_MASTER['plugins'] = {u'post_run': [
 #         {u'args': {},
 #          u'description': u'Sends mail to the recipients.',
 #          u'stage': u'post_run',
 #          u'name': u'EmailPlugin'},
-#         {u'args': {u'xml_file': None, u'services': [u'acropolis', u'ergon'], u'db_password': None,
+#         {u'args': {u'xml_file': None, u'services': [u'catalog'], u'db_password': None,
 #                    u'enable_traceability': False,
 #                    u'db_coverage_ip': u'drt-rlb-mongo-codecoverage-prod-1.corp.nutanix.com', u'port': 27017,
 #                    u'db_name': u'cc', u'db_username': None, u'collection_name': u'code_coverage',
-#                    u'local_mount': u'/home/nutanix/code_coverage/python', u'pycov_options': [u'-i acropolis',
-#                                                                                              u'-i ergon'],
+#                    u'local_mount': u'/home/nutanix/code_coverage/python', u'pycov_options': [u'-i catalog'],
 #                    u'tool_name': u'pycov'},
 #          u'description': u'Computes code coverage data for a given NOS service in python source code.',
-#          u'stage': u'post_run', u'name': u'CodeCoverageComputePythonPostPlugin'}],
+#          u'stage': u'post_run',
+#          u'name': u'CodeCoverageComputePythonPostPlugin'}],
 #         u'pre_run': [
-#             {u'args': {u'xml_file': None, u'services': [u'acropolis', u'ergon'], u'enable_traceability': False,
-#                        u'nfs_filer_location': u'10.53.192.66:/volume1/code_coverage/python',
+#             {u'args': {u'xml_file': None, u'services': [u'catalog'], u'enable_traceability': False,
+#                        u'nfs_filer_location': u'10.41.27.247:/home/code_coverage/python',
 #                        u'pycov_location': u'http://10.4.16.50/home/rachit.sinha/python_coverage/pycov',
-#                        u'local_mount': u'/home/nutanix/code_coverage/python', u'pycov_options': [u'-i acropolis',
-#                                                                                                  u'-i ergon'],
+#                        u'local_mount': u'/home/nutanix/code_coverage/python', u'pycov_options': [u'-i catalog'],
 #                        u'tool_name': u'pycov'},
 #              u'description': u'Computes code coverage data for a given NOS service in python source code.',
 #              u'stage': u'pre_run',
 #              u'name': u'CodeCoverageComputePythonPrePlugin'}]
 # }
-
+#
 
 ACROPOLIS_PAYLOAD_MASTER['scheduling_options'] = {
     u'optimize_scheduling': True,
@@ -171,7 +171,27 @@ ACROPOLIS_PAYLOAD_PC_NO_CLONE_MASTER = ACROPOLIS_PAYLOAD_PC_MASTER.copy()
 ACROPOLIS_PAYLOAD_NO_PC_MASTER = {k: v for (k, v) in ACROPOLIS_PAYLOAD_MASTER.items() if k != 'resource_manager_json'}
 ACROPOLIS_PAYLOAD_GPU_MASTER = ACROPOLIS_PAYLOAD_NO_PC_MASTER.copy()
 
+ACROPOLIS_PAYLOAD_GPU_PC_MASTER = ACROPOLIS_PAYLOAD_PC_MASTER.copy()
+ACROPOLIS_PAYLOAD_GPU_PC_MASTER['tester_tags'] = [u'v3.1', u'max_deployments__4', u'official']
+ACROPOLIS_PAYLOAD_GPU_PC_MASTER['cluster_selection'] = {
+        u'pool_name': GPU_POOL_NAME,
+        u'by_node_pool': True
+}
 
+
+
+ACROPOLIS_PAYLOAD_PC_UI_MASTER = ACROPOLIS_PAYLOAD_MASTER.copy()
+ACROPOLIS_PAYLOAD_PC_UI_MASTER['resource_manager_json'] = dict(
+    PRISM_CENTRAL={
+    u'build': {
+        u'nos_build_url': PC_URL + PC_COMMIT_ID + '/' + BUILD_TYPE + '/'
+    }},
+    SELENIUM_VM = {
+    "software": {
+        "build_url": "http://endor.dyn.nutanix.com/GoldImages/selenlium_windows_image/selenium_auto_start_win7.img"
+    }
+}
+)
 # ACROPOLIS_PAYLOAD_GPU_MASTER['cluster_selection'] = {
 #     u'cluster_names': [u'gardenia'],
 #     u'by_names': True
@@ -299,6 +319,8 @@ ACROPOLIS_PAYLOAD_PC_CATALOG_MASTER = ACROPOLIS_PAYLOAD_MASTER.copy()
 ACROPOLIS_PAYLOAD_PC_CATALOG_MASTER["emails"] = [u'velurusruthi.naidu@nutanix.com', u'bhawani.singh@nutanix.com',
                                                  u'acropolis-catalog@nutanix.com', u'vivekanandan.k@nutanix.com',
                                                  u'ritopa.dey@nutanix.com']
+
+
 # ACROPOLIS_PAYLOAD_PC_CATALOG_MASTER["emails"] = [u'muthu.kumaran@nutanix.com']
 
 ACROPOLIS_PAYLOAD_PC_CATALOG_HYPERVISOR_ANY_MASTER = ACROPOLIS_PAYLOAD_PC_CATALOG_MASTER.copy()
@@ -363,6 +385,14 @@ ACROPOLIS_PAYLOAD_PC_SCALEOUT_MASTER['cluster_selection'] = {
         u'pool_name': SCALE_OUT_POOL_NAME,
         u'by_node_pool': True
 }
+
+ACROPOLIS_PAYLOAD_PC_MAX_MASTER = ACROPOLIS_PAYLOAD_MASTER.copy()
+ACROPOLIS_PAYLOAD_PC_MAX_MASTER['cluster_selection'] = {
+        u'pool_name': MAX_TEST_POOL_NAME,
+        u'by_node_pool': True
+}
+ACROPOLIS_PAYLOAD_PC_MAX_MASTER['tester_tags'] = [u'infra__systest', u'nutest',u'container_unlimited, sched_alpha', u'official']
+ACROPOLIS_PAYLOAD_PC_MAX_MASTER['patch_url'] = u'https://gerrit.eng.nutanix.com/changes/447846/revisions/4a9ba06cd33486eea24a18291ad0fde9d28ce9a6/patch?zip'
 
 ACROPOLIS_PAYLOAD_SCHEDULER_OPT_MASTER = ACROPOLIS_PAYLOAD_NO_PC_MASTER.copy()
 ACROPOLIS_PAYLOAD_SCHEDULER_OPT_MASTER['scheduling_options'] = {
