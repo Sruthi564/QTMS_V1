@@ -34,16 +34,25 @@ REMOVED_UHURA_JPS_5_11 = {
 
 ACROPOLIS_JPS_MASTER = {
     "NO-PC": [
+        #-- UI cases--#
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_UI_PE_master","max_dep": [u'max_deployments__1'], "sub-component": "aos-ns", "category": 'reg-handedover',"JP_ID": "5fd464a7d24d8278b4cc325b", "FQA": ["suryaprabha.k@nutanix.com"]},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_UI_PE_VM_Table_master","max_dep": [u'max_deployments__1'], "sub-component": "aos-ns", "category": 'reg-handedover',"JP_ID": "5fd4654c8e79ce917711e5be", "FQA": ["suryaprabha.k@nutanix.com"]},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_PE_Image_master","max_dep": [u'max_deployments__1'], "sub-component": "aos-ns", "category": 'reg-handedover',"JP_ID": "5fed71678e79ce0f464bf363", "FQA": ["suryaprabha.k@nutanix.com"]},
+
+        #--NON-UI--#
         {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Scheduler_Defrag_master", "max_dep": [u'max_deployments__1'], "sub-component": "aos-ns", "category": 'reg-handedover', "JP_ID": "5d80f14f7b48b11e4c1490e5", "FQA": ["dipika.darshan@nutanix.com", "maksim.kalitinenkov@nutanix.com"]},
 
-        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Host_Agent_Test_master", "max_dep": [u'max_deployments__1'], "sub-component": "host_Agent", "category": 'reg-handedover', "JP_ID": "5cb5b83d7b48b16fd0127f46", "FQA": ["velurusruthi.naidu@nutanix.com"]},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Host_Agent_Test_master","max_dep": [u'max_deployments__1'], "sub-component": "host_Agent", "category": 'reg-handedover',"JP_ID": "5fa00a01d24d82845f368ad4", "FQA": ["velurusruthi.naidu@nutanix.com"]},
+
+        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Host_Agent_Test_master", "max_dep": [u'max_deployments__1'], "sub-component": "host_Agent", "category": 'reg-handedover', "JP_ID": "5cb5b83d7b48b16fd0127f46", "FQA": ["velurusruthi.naidu@nutanix.com"]},
+
         {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_AOS_NS_master", "max_dep": [u'max_deployments__1'], "sub-component": "aos-ns", "category": 'reg-handedover', "JP_ID": "5b21e7c81b54d06cac30d337", "FQA": ["dipika.darshan@nutanix.com", "maksim.kalitinenkov@nutanix.com"]},
-       # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Acropolis_Vm_Management_master", "max_dep": [u'max_deployments__1'], "sub-component": "vm-management", "category": 'reg-handedover', "JP_ID": "5a7846c61b54d091b9237664", "FQA": ["velurusruthi.naidu@nutanix.com"]},
-       # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Webhooks_master", "max_dep": [u'max_deployments__1'], "sub-component": "webhooks", "category": 'reg-handedover', "JP_ID": "5a58a0c71b54d0d648d262b1", "FQA": ["raymond.yip@nutanix.com"]},
-       {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_CO_AOS_master", "max_dep": [u'max_deployments__1'], "sub-component": "ahv-co", "category": 'reg-handedover', "JP_ID": "5c764fd292491e26d6b7cfc2", "FQA": ["robert@nutanix.com"]},
-       {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_ACLI_Scheduling_master", "max_dep": [u'max_deployments__1'], "sub-component": "scheduler-acli", "category": 'reg-handedover', "JP_ID": "5dad84267b48b152f04ceafd", "FQA": ["dipika.darshan@nutanix.com"]},
-       {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Storage_Persona_master", "max_dep": [u'max_deployments__1'], "sub-component": "storage-persona", "category": 'reg-handedover', "JP_ID": "5d80f2cf7b48b124845eae98", "FQA": ["dipika.darshan@nutanix.com", "amir.eibagi@nutanix.com"]},
-       # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_AHV_Mgmt_ACLI_master", "max_dep": [u'max_deployments__4'], "sub-component": "storage-persona", "category": 'reg-handedover', "JP_ID": "5db1002d7b48b15238beb4f9", "FQA": ["syam.mohan@nutanix.com"]}
+        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Acropolis_Vm_Management_master", "max_dep": [u'max_deployments__1'], "sub-component": "vm-management", "category": 'reg-handedover', "JP_ID": "5a7846c61b54d091b9237664", "FQA": ["velurusruthi.naidu@nutanix.com"]},
+        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Webhooks_master", "max_dep": [u'max_deployments__1'], "sub-component": "webhooks", "category": 'reg-handedover', "JP_ID": "5a58a0c71b54d0d648d262b1", "FQA": ["raymond.yip@nutanix.com"]},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_CO_AOS_master", "max_dep": [u'max_deployments__1'], "sub-component": "ahv-co", "category": 'reg-handedover', "JP_ID": "5c764fd292491e26d6b7cfc2", "FQA": ["robert@nutanix.com"]},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_ACLI_Scheduling_master", "max_dep": [u'max_deployments__1'], "sub-component": "scheduler-acli", "category": 'reg-handedover', "JP_ID": "5dad84267b48b152f04ceafd", "FQA": ["dipika.darshan@nutanix.com"]},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Storage_Persona_master", "max_dep": [u'max_deployments__1'], "sub-component": "storage-persona", "category": 'reg-handedover', "JP_ID": "5d80f2cf7b48b124845eae98", "FQA": ["dipika.darshan@nutanix.com", "amir.eibagi@nutanix.com"]},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_AHV_Mgmt_ACLI_master", "max_dep": [u'max_deployments__4'], "sub-component": "storage-persona", "category": 'reg-handedover', "JP_ID": "5db1002d7b48b15238beb4f9", "FQA": ["syam.mohan@nutanix.com"]}
 
     ],
     "SCHEDULER": [
@@ -160,14 +169,25 @@ ACROPOLIS_JPS_MASTER = {
         {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_ova_export_import_tests", "max_dep": [u'max_deployments__1'], "sub-component": "ova_import_export", "category": 'reg-handedover', "JP_ID": "5f6b240f2bc0c401c08039cc", "FQA": ["nagasuri.sree@nutanix.com"]},
 
     ],
+    "PC-UI":
+    [
+    # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_VM_UI_XI_PC_master", "max_dep": [u'max_deployments__1'], "sub-component": "rbac", "category": 'reg-handedover',"JP_ID": "5fd4666c8e79ce916bc5c47e", "FQA": ["sowmya.peddina@nutanix.com"]},
+    # {"branch": "master", "JP_NAME": "Regression_acropolis_FEAT-5766_image_services_master", "max_dep": [u'max_deployments__1'], "sub-component": "rbac", "category": 'reg-handedover',"JP_ID": "5fed700b2bc0c4a309cbe24e", "FQA": ["sowmya.peddina@nutanix.com"]},
+    # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_PC_Image-Master", "max_dep": [u'max_deployments__1'], "sub-component": "rbac", "category": 'reg-handedover',"JP_ID": "5fed73688e79ce0f48cf03b6", "FQA": ["suryaprabha.k@nutanix.com"]},
+    # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_pc_cluster_selection_master", "max_dep": [u'max_deployments__1'], "sub-component": "rbac", "category": 'reg-handedover',"JP_ID": "5fed75752bc0c4a305f89f1c", "FQA": ["suryaprabha.k@nutanix.com"]},
+    # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_PC-Import-Image_master", "max_dep": [u'max_deployments__1'], "sub-component": "rbac", "category": 'reg-handedover',"JP_ID": "5fed7633d24d828761bbe7c5", "FQA": ["suryaprabha.k@nutanix.com"]},
+
+
+    ],
 
 
     "PC-CATALOG":[
 
-        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_remote_seed_master", "max_dep": [u'max_deployments__1'], "JP_ID": "5cee8d657b48b1035bc8c54b", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'},
-        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_Cluster_Selection_master", "max_dep": [u'max_deployments__3'], "JP_ID": "5d11ddd77b48b13bf30e0959", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'},
-        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_Optimized_Checkout_master", "max_dep": [u'max_deployments__2'], "JP_ID": "5d11d1277b48b19a8dc6eb4f", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'}
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_remote_seed_master", "max_dep": [u'max_deployments__1'], "JP_ID": "5cee8d657b48b1035bc8c54b", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_Cluster_Selection_master", "max_dep": [u'max_deployments__3'], "JP_ID": "5d11ddd77b48b13bf30e0959", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'},
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_Optimized_Checkout_master", "max_dep": [u'max_deployments__2'], "JP_ID": "5d11d1277b48b19a8dc6eb4f", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'}
     ],
+
     "PC-CATALOG-RBAC":[
         {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_RBAC_Master",
          "max_dep": [u'max_deployments__1'], "JP_ID": "5fa395222bc0c4d19915e778", "FQA": ["saurabh.dohare@nutanix.com"],
@@ -175,10 +195,10 @@ ACROPOLIS_JPS_MASTER = {
     ],
 
     "PC-CATALOG-HYPERVISOR-ANY":[
-        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_master", "max_dep": [u'max_deployments__6'], "JP_ID": "5ab20abf1b54d0f669f4f4be", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'}
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_master", "max_dep": [u'max_deployments__6'], "JP_ID": "5ab20abf1b54d0f669f4f4be", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'}
     ],
     "PE-CATALOG":[
-        # {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_PE_master", "max_dep": [u'max_deployments__6'], "JP_ID": "5df09e492bc0c452bb835513", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'}
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_PE_master", "max_dep": [u'max_deployments__6'], "JP_ID": "5df09e492bc0c452bb835513", "FQA": ["saurabh.dohare@nutanix.com"], "sub-component": "catalog", "category": 'reg-handedover'}
     ],
     'PC-CATALOG-ESX': [
         {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_XI_Catalog_Esx_Master",
@@ -193,6 +213,10 @@ ACROPOLIS_JPS_MASTER = {
         #{"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_VGpu_master", "max_dep": [u'max_deployments__1'], "sub-component": "gpu", "category": 'reg-handedover', "JP_ID": "5a58a1e21b54d0ca7acd9973", "FQA": ["kern.qian@nutanix.com"]},
     ],
 
+    "GPU-PC": [
+        {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Vgpu_UI_PC_Master", "max_dep": [u'max_deployments__1'], "sub-component": "gpu", "category": 'reg-handedover',"JP_ID": "5f3a43502bc0c4e33bd91b10", "FQA": ["kern.qian@nutanix.com"]},
+    ],
+
     "VNUMA": [
         {"branch": "master", "JP_NAME": "Regression_Acropolis_MTS_Nutest_Vnuma_master", "max_dep": [u'max_deployments__1'], "sub-component": "vnuma", "category": 'reg-handedover', "JP_ID": "5a589ee81b54d0e2cbb927d1", "FQA": ["robert@nutanix.com"]},
      ],
@@ -204,9 +228,10 @@ ACROPOLIS_JPS_MASTER = {
 
 ACROPOLIS_JPS_NON_REG_HANDEDOVER = {
     "PC": [
-       #  {"JP_NAME": "Regression_Acropolis_MTS_Nutest_OVA_RBAC_master", "max_dep": [u'max_deployments__1'], "sub-component": "ova-ovf", "category": 'non-reg-handedover', "JP_ID": "5d774b9d7b48b1e368b2cf5f", "FQA": ["nagasuri.sree@nutanix.com"]},
-      #   {"JP_NAME": "Regression_Acropolis_MTS_Nutest_OVA_AHV_AHV_master", "max_dep": [u'max_deployments__3'], "sub-component": "ova-ovf", "category": 'non-reg-handedover', "JP_ID": "5cb45fdf7b48b1f0b1d52d79", "FQA": ["syam.mohan@nutanix.com"]},
-         {"JP_NAME": "Regression_Acropolis_MTS_Nutest_Capabilities_master", "max_dep": [u'max_deployments__1'], "sub-component": "capabilities", "category": 'non-reg-handedover', "JP_ID": "5d4ac2dd7b48b1d7b3a1a863", "FQA": ["vistaar.juneja@nutanix.com"]},
+         # {"JP_NAME": "Regression_Acropolis_MTS_Nutest_OVA_RBAC_master", "max_dep": [u'max_deployments__1'], "sub-component": "ova-ovf", "category": 'non-reg-handedover', "JP_ID": "5d774b9d7b48b1e368b2cf5f", "FQA": ["nagasuri.sree@nutanix.com"]},
+         # {"JP_NAME": "Regression_Acropolis_MTS_Nutest_OVA_AHV_AHV_master", "max_dep": [u'max_deployments__3'], "sub-component": "ova-ovf", "category": 'non-reg-handedover', "JP_ID": "5cb45fdf7b48b1f0b1d52d79", "FQA": ["syam.mohan@nutanix.com"]},
+         {"JP_NAME": "Regression_Acropolis_MTS_Nutest_OVA_AHV_AHV_multipart_master", "max_dep": [u'max_deployments__3'],"sub-component": "ova-ovf", "category": 'non-reg-handedover', "JP_ID": "5fed7886d24d82875d93fd3d","FQA": ["syam.mohan@nutanix.com"]},
+         # {"JP_NAME": "Regression_Acropolis_MTS_Nutest_Capabilities_master", "max_dep": [u'max_deployments__1'], "sub-component": "capabilities", "category": 'non-reg-handedover', "JP_ID": "5d4ac2dd7b48b1d7b3a1a863", "FQA": ["vistaar.juneja@nutanix.com"]},
     ],
     "PC-OVA": [
         {"JP_NAME": "Regression_Acropolis_MTS_Nutest_OVA_AHV_ESX_master", "max_dep": [u'max_deployments__3'], "sub-component": "ova-ovf", "category": 'non-reg-handedover', "JP_ID": "5cb45d4a7b48b1f0b1d52d64", "FQA": ["syam.mohan@nutanix.com"]},
@@ -216,6 +241,10 @@ ACROPOLIS_JPS_NON_REG_HANDEDOVER = {
     ],
    "PC-SCALEOUT": [
         {"JP_NAME": "Regression_Acropolis_MTS_Nutest_VMS_Rolling_Group_ScaleOutPC_master", "max_dep": [u'max_deployments__1'], "sub-component": "pc-scaleout", "category": 'non-reg-handedover', "JP_ID": "5db1013f7b48b1519a91bd1e", "FQA": ["bhawani.singh@nutanix.com"]},
+    ],
+
+    "PC-MAX": [
+        {"JP_NAME": "Regression_Acropolis_systest_ahv_master_official_pc_vm_maximum_master", "max_dep": [u'max_deployments__1'], "sub-component": "pc-max", "category": 'non-reg-handedover',"JP_ID": "5fa00a01d24d82845f368ad4", "FQA": ["bhawani.singh@nutanix.com"]},
     ]
 }
 
@@ -290,8 +319,8 @@ ACROPOLIS_JPS_NON_REG_HANDEDOVER = {
 
 UHURA_JPS_MASTER = {
     "PC": [
-       #  {"JP_NAME": "Regression_Uhura_FEAT-6978_v3_clone_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5b75519f1b54d0c24d176aba", "FQA": ["saurabh.jain@nutanix.com"]},
-      #  {"JP_NAME": "Regression_Uhura_GuestCustomization_master", "max_dep": [u'max_deployments__3'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5a77fbbc1b54d017d555d198", "FQA": ["saurabh.jain@nutanix.com"]}
+        # {"JP_NAME": "Regression_Uhura_FEAT-6978_v3_clone_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5b75519f1b54d0c24d176aba", "FQA": ["saurabh.jain@nutanix.com"]},
+        # {"JP_NAME": "Regression_Uhura_GuestCustomization_master", "max_dep": [u'max_deployments__3'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5a77fbbc1b54d017d555d198", "FQA": ["saurabh.jain@nutanix.com"]},
     ],
     "NO-PC-WITH-VC": [
         {"JP_NAME": "Regression_Uhura__ESX__RPC_master", "max_dep": [u'max_deployments__3'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5b050eef1b54d080995ca162", "FQA": ["saurabh.jain@nutanix.com"]},
@@ -302,14 +331,19 @@ UHURA_JPS_MASTER = {
     ],
     "NO-PC-NO-VC": [
         # {"JP_NAME": "Regression_Uhura__AHV__REST_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5b0255bc1b54d04447a93b5c", "FQA": ["saurabh.jain@nutanix.com"]},
-       #{"JP_NAME": "Regression_Uhura__AHV__RPC_master", "max_dep": [u'max_deployments__2'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "58c90c0e1b54d02d9ad69669", "FQA": ["saurabh.jain@nutanix.com"]},
-        # {"JP_NAME": "Regression_Uhura__AHV__UI_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5b025d531b54d082017341d4", "FQA": ["saurabh.jain@nutanix.com"]}
+        # {"JP_NAME": "Regression_Uhura__AHV__RPC_master", "max_dep": [u'max_deployments__2'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "58c90c0e1b54d02d9ad69669", "FQA": ["saurabh.jain@nutanix.com"]},
+        # {"JP_NAME": "Regression_Uhura__AHV__UI_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5b025d531b54d082017341d4", "FQA": ["saurabh.jain@nutanix.com"]},
+        # {"JP_NAME": "Regression_Ergon_without_NS_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura","category": 'reg-handedover', "JP_ID": "5f50a859d24d8217bbb12c3e", "FQA": ["saurabh.jain@nutanix.com"]},
     ],
     "NS-WITH-VC": [
         {"JP_NAME": "Regression_Uhura_GoldSuite_NS_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "59e5ce401b54d09abcef97e9", "FQA": ["saurabh.jain@nutanix.com"]}
     ],
     "NS-NO-VC": [
         {"JP_NAME": "Regression_Uhura__Ergon__NS_master", "max_dep": [u'max_deployments__1'], "sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5aea79f91b54d01d50f0531b", "FQA": ["saurabh.jain@nutanix.com"]}
+    ],
+
+    "ERGON-PC": [
+        {"JP_NAME": "Regression_acropolis_ergon_replica_delete", "max_dep": [u'max_deployments__3'],"sub-component": "uhura", "category": 'reg-handedover', "JP_ID": "5f51e54ed24d8217bcfcc856","FQA": ["saurabh.jain@nutanix.com"]},
     ]
 }
 
@@ -2586,6 +2620,12 @@ ACROPOLIS_JPS_5_15_3= {
                         ('category', 'reg-handedover'),
                         ('JP_ID', '5e748ac78e79ce5ff31f851e'),
                         ('max_dep', ['max_deployments__1'])]),
+
+           OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_PE_Image_5.15.5'),
+                                ('sub-component', 'aos-nos'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '60059b0dd24d82df9d496952'),
+                                ('max_dep', ['max_deployments__1'])]),
            OrderedDict([('JP_NAME',
                          'Regression_Acropolis_MTS_Nutest_Acropolis_Vm_Management_5.15.1'),
                         ('sub-component', 'vm-management'),
@@ -2778,6 +2818,15 @@ ACROPOLIS_JPS_5_19 = {
                       ('category', 'reg-handedover'),
                       ('JP_ID', '5f4dd931d24d82e10f131584'),
                       ('max_dep', ['max_deployments__1'])])],
+
+'GPU-PC': [OrderedDict([("JP_NAME",
+                         "Regression_Acropolis_MTS_Vgpu_UI_PC_5.19"),
+                        ("sub-component", "gpu"),
+                        ("category", 'reg-handedover'),
+                        ("JP_ID", "5f75be3fd24d82a08fddde62"),
+                        ("max_dep", [u'max_deployments__1'])
+])],
+
  'GUEST-OS-OPT': [OrderedDict([('JP_NAME',
                                 'Regression_Acropolis_MTS_Nutest_Guest_OS_LLC_1_5.19'),
                                ('sub-component', 'ahv-guest-os'),
@@ -3003,6 +3052,11 @@ ACROPOLIS_JPS_5_19 = {
                         ('category', 'reg-handedover'),
                         ('JP_ID', '5f4dd9192bc0c4e6eead5fa8'),
                         ('max_dep', ['max_deployments__1'])]),
+           OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_PE_Image_5.19'),
+                                ('sub-component', 'aos-nos'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff5856a2bc0c43b1e167b77'),
+                                ('max_dep', ['max_deployments__1'])]),
            OrderedDict([('JP_NAME',
                          'Regression_Acropolis_MTS_Nutest_Acropolis_Vm_Management_5.19'),
                         ('sub-component', 'vm-management'),
@@ -3045,6 +3099,32 @@ ACROPOLIS_JPS_5_19 = {
                            ('category', 'reg-handedover'),
                            ('JP_ID', '5f4dd9672bc0c488415c5848'),
                            ('max_dep', ['max_deployments__1'])])],
+ 'PC-UI': [OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_VM_UI_XI_PC_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff56674d24d82b78df8a48c'),
+                                ('max_dep', ['max_deployments__1'])]),
+        OrderedDict([('JP_NAME', 'Regression_acropolis_FEAT-5766_image_services_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff56762d24d82b795f4e192'),
+                                ('max_dep', ['max_deployments__1'])]),
+        OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_PC_Image-5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff568d02bc0c43b2194e44b'),
+                                ('max_dep', ['max_deployments__1'])]),
+        OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_pc_cluster_selection_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff569ef2bc0c43b2f5c0e51'),
+                                ('max_dep', ['max_deployments__1'])]),
+        OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_PC-Import-Image_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff56d7c8e79cea78c20aa34'),
+                                ('max_dep', ['max_deployments__1'])]),
+ ],
  'PC': [OrderedDict([('JP_NAME',
                       'Regression_Acropolis_MTS_Nutest_RBAC_SNAPSHOT-5.19'),
                      ('sub-component', 'rbac'),
@@ -3097,6 +3177,18 @@ ACROPOLIS_JPS_5_19 = {
                      ('sub-component', 'audit'),
                      ('category', 'reg-handedover'),
                      ('JP_ID', '5f4dd9072bc0c42c7ea9e930'),
+                     ('max_dep', ['max_deployments__1'])]),
+        OrderedDict([('JP_NAME',
+                      'Regression_Acropolis_MTS_Nutest_legacy_rbac_tests_5.19'),
+                     ('sub-component', 'rbac'),
+                     ('category', 'reg-handedover'),
+                     ('JP_ID', '5f69ebbfd24d82838d36638a'),
+                     ('max_dep', ['max_deployments__1'])]),
+        OrderedDict([('JP_NAME',
+                      'Regression_Acropolis_MTS_Nutest_ova_export_import_tests_5.19'),
+                     ('sub-component', 'ova_import_export'),
+                     ('category', 'reg-handedover'),
+                     ('JP_ID', '5f6b25e12bc0c4f98ba1356a'),
                      ('max_dep', ['max_deployments__1'])]),
         OrderedDict([('JP_NAME',
                       'Regression_Acropolis_MTS_Nutest_XiScheduler_Hardened'),
@@ -3155,6 +3247,11 @@ ACROPOLIS_JPS_5_19 = {
                                 ('JP_ID', '5eaad4162bc0c4b9ba812b8a'),
                                 ('max_dep', ['max_deployments__3'])])
                    ],
+ 'PC-MAX': [OrderedDict([('JP_NAME', 'Regression_Acropolis_systest_ahv_master_official_pc_vm_maximum_5.19'),
+                                ('sub-component', 'pc-max'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff572f4d24d8270cd549c78'),
+                                ('max_dep', ['max_deployments__1'])])],
 
  'PC-OVA': [OrderedDict([('JP_NAME',
                           'Regression_Acropolis_MTS_Nutest_OVA_AHV_ESX_5.19'),
@@ -3298,13 +3395,18 @@ UHURA_JPS_5_19 = {'NO-PC-NO-VC': [OrderedDict([('JP_NAME', 'Regression_Uhura__AH
                      ('category', 'reg-handedover'),
                      ('JP_ID', '5f4f36d72bc0c4010f7eb3f8'),
                      ('max_dep', ['max_deployments__1'])]),
-        OrderedDict([('JP_NAME', 'Regression_Uhura_GuestCustomization_5.19'),
+               OrderedDict([('JP_NAME', 'Regression_Uhura_GuestCustomization_5.19'),
                      ('sub-component', 'uhura'),
                      ('category', 'reg-handedover'),
                      ('JP_ID', '5f4f36e48e79ce79354d15e4'),
-                     ('max_dep', ['max_deployments__3'])])]
+                     ('max_dep', ['max_deployments__3'])])],
+ 'ERGON-PC': [OrderedDict([('JP_NAME', 'Regression_acropolis_ergon_replica_delete_5.19'),
+                          ('sub-component', 'UHURA'),
+                          ('category', 'reg-handedover'),
+                          ('JP_ID', '5f587fdc8e79cea9544b8122'),
+                          ('max_dep', ['max_deployments__3'])])]
+}
 
-     }
 
 
 
@@ -3362,13 +3464,38 @@ UHURA_JPS_5_17_1 = {
                              ('category', 'reg-handedover'),
                              ('JP_ID', '5eaadafe8e79cedf983fd886'),
                              ('max_dep', ['max_deployments__1'])])],
+    'PC-UI': [OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_VM_UI_XI_PC_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff56674d24d82b78df8a48c'),
+                                ('max_dep', ['max_deployments__1'])]),
+             OrderedDict([('JP_NAME', 'Regression_acropolis_FEAT-5766_image_services_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff56762d24d82b795f4e192'),
+                                ('max_dep', ['max_deployments__1'])]),
+            OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_PC_Image-5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff568d02bc0c43b2194e44b'),
+                                ('max_dep', ['max_deployments__1'])]),
+            OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_pc_cluster_selection_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff569ef2bc0c43b2f5c0e51'),
+                                ('max_dep', ['max_deployments__1'])]),
+            OrderedDict([('JP_NAME', 'Regression_Acropolis_MTS_Nutest_PC-Import-Image_5.19'),
+                                ('sub-component', 'rbac'),
+                                ('category', 'reg-handedover'),
+                                ('JP_ID', '5ff56d7c8e79cea78c20aa34'),
+                                ('max_dep', ['max_deployments__1'])])],
 
     'PC': [OrderedDict([('JP_NAME', 'Regression_Uhura_FEAT-6978_v3_clone_5.17.1'),
                      ('sub-component', 'uhura'),
                      ('category', 'reg-handedover'),
                      ('JP_ID', '5eaadbde8e79cedf96e42026'),
                      ('max_dep', ['max_deployments__1'])]),
-        OrderedDict([('JP_NAME', 'Regression_Uhura_GuestCustomization_5.17.1'),
+           OrderedDict([('JP_NAME', 'Regression_Uhura_GuestCustomization_5.17.1'),
                      ('sub-component', 'uhura'),
                      ('category', 'reg-handedover'),
                      ('JP_ID', '5eaadbe12bc0c4b9a19c4e76'),
@@ -4352,6 +4479,7 @@ UHURA_JPS_5_18_1 = {
 
 }
 
+
 # ACROPOLIS_JPS_MAJOR = ACROPOLIS_JPS_5_10_2.copy()
 # UHURA_JPS_MAJOR = UHURA_JPS_5_10_2.copy()
 
@@ -4372,8 +4500,12 @@ UHURA_JPS_5_18_1 = {
 #UHURA_JPS_MAJOR = UHURA_JPS_5_17.copy()
 #ACROPOLIS_JPS_MAJOR = ACROPOLIS_JPS_5_17.copy()
 
+
 UHURA_JPS_MAJOR = UHURA_JPS_5_19.copy()
 ACROPOLIS_JPS_MAJOR = ACROPOLIS_JPS_5_19.copy()
+
+# UHURA_JPS_MINOR = UHURA_JPS_5_19.copy()
+# ACROPOLIS_JPS_MINOR = ACROPOLIS_JPS_5_19.copy()
 
 # ACROPOLIS_JPS_MINOR = ACROPOLIS_JPS_5_18_1.copy()
 # UHURA_JPS_MINOR = UHURA_JPS_5_18_1.copy()
@@ -4390,11 +4522,14 @@ ACROPOLIS_JPS_MAJOR = ACROPOLIS_JPS_5_19.copy()
 # ACROPOLIS_JPS_MINOR = ACROPOLIS_JPS_5_15_2.copy()
 # UHURA_JPS_MINOR = UHURA_JPS_5_15_2.copy()
 
-# ACROPOLIS_JPS_MINOR = ACROPOLIS_JPS_5_15_3.copy()
-# UHURA_JPS_MINOR = UHURA_JPS_5_15_3.copy()
 
 ACROPOLIS_JPS_MINOR = ACROPOLIS_JPS_5_15_3.copy()
 UHURA_JPS_MINOR = UHURA_JPS_5_15_3.copy()
+
+
+
+# ACROPOLIS_JPS_MINOR = ACROPOLIS_JPS_5_15_3.copy()
+# UHURA_JPS_MINOR = UHURA_JPS_5_18_1.copy()
 
 
 # UHURA_JPS_MAJOR = UHURA_JPS_5_18.copy()
