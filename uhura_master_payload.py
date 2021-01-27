@@ -7,9 +7,9 @@ PC_REL_BRANCH = u'master'
 POOL_NAME = [u'AHV_NODE_POOL_OSL']
 
 PC_URL = u'http://endor.dyn.nutanix.com/builds/PC-builds/' + PC_REL_BRANCH + '/'
-PC_COMMIT_ID = '1e08eac6e371f6658dfc95a516cd876ce7b7b035'
+PC_COMMIT_ID = 'b322f2711c7293ae1adc2e9133c99a8cca4838cf'
 
-NOS_COMMIT_ID = "1e08eac6e371f6658dfc95a516cd876ce7b7b035"
+NOS_COMMIT_ID = "b322f2711c7293ae1adc2e9133c99a8cca4838cf"
 
 
 
@@ -145,6 +145,27 @@ UHURA_PAYLOAD_MASTER['resource_manager_json'] = dict(PRISM_CENTRAL={
 })
 
 UHURA_PAYLOAD_PC_MASTER = UHURA_PAYLOAD_MASTER
+UHURA_PAYLOAD_ERGON_PC_MASTER = UHURA_PAYLOAD_PC_MASTER.copy()
+UHURA_PAYLOAD_ERGON_PC_MASTER[u'requested_hardware'] = {
+    u'hypervisor_version': None,
+    u'hypervisor': None,
+    u'imaging_options': {
+        u'datacenter': {
+            u'hyperv': {},
+            u'kvm': {},
+            u'vsphere': {},
+            u'use_host_names': False
+        },
+        u'min_host_cpu_cores': 6,
+        u'min_host_gb_ram': 30,
+        u'nos_url': NOS_URL,
+        u'redundancy_factor': u'default',
+        u'secondary_datacenters': {
+            u'vsphere': {}
+        },
+        u'hypervisor_url': ''
+    }
+}
 UHURA_PAYLOAD_NO_PC_NO_VC_MASTER = {k: v for (k, v) in UHURA_PAYLOAD_MASTER.items() if k != 'resource_manager_json'}
 UHURA_PAYLOAD_NO_PC_WITH_VC_MASTER = UHURA_PAYLOAD_NO_PC_NO_VC_MASTER.copy()
 UHURA_PAYLOAD_NO_PC_WITH_VC_MASTER[u'requested_hardware'] = {
