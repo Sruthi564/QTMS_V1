@@ -29,15 +29,38 @@
 #PC_REL_BRANCH = u'euphrates-5.16.1-stable'
 #OBELIX_BRANCH = u'dogmatix'
 
-#NUTEST_BRANCH = u'euphrates-5.15-stable'
-#AOS_REL_BRANCH = u'euphrates-5.15.2-stable'
-#PC_REL_BRANCH = u'euphrates-5.15.2-stable'
-#OBELIX_BRANCH = u'obelix'
+# NUTEST_BRANCH = u'euphrates-5.15-stable'
+# AOS_REL_BRANCH = u'euphrates-5.15.2-stable'
+# PC_REL_BRANCH = u'euphrates-5.15.2-stable'
+# OBELIX_BRANCH = u'obelix'
+
+# # 
+# NUTEST_BRANCH = u'euphrates-5.15-stable'
+# AOS_REL_BRANCH = u'euphrates-5.15.3-stable'
+# PC_REL_BRANCH = u'euphrates-5.15.3-stable'
+# OBELIX_BRANCH = u'obelix'
 
 NUTEST_BRANCH = u'euphrates-5.15-stable'
-AOS_REL_BRANCH = u'euphrates-5.15.4-stable'
-PC_REL_BRANCH = u'euphrates-5.15.4-stable'
-OBELIX_BRANCH = u'obelix_5.15'
+AOS_REL_BRANCH = u'euphrates-5.15.5-stable'
+PC_REL_BRANCH = u'euphrates-5.15.5-stable'
+OBELIX_BRANCH = u'obelix'
+
+# NUTEST_BRANCH = u'euphrates-5.19-stable'
+# AOS_REL_BRANCH = u'euphrates-5.19.1-stable'
+# PC_REL_BRANCH = u'euphrates-5.19-stable-pc-1'
+# OBELIX_BRANCH = u'dogmatix_5.19'
+# PC_OBELIX_BRANCH = u'euphrates-5.19-stable-pc-1'
+
+# NUTEST_BRANCH = u'euphrates-5.18-stable'
+# AOS_REL_BRANCH = u'euphrates-5.18.1-stable'
+# PC_REL_BRANCH = u'euphrates-5.18.1-stable'
+# OBELIX_BRANCH = u'obelix_5.18'
+
+# NUTEST_BRANCH = u'euphrates-5.17-stable'
+# AOS_REL_BRANCH = u'euphrates-5.17.1-stable'
+# PC_REL_BRANCH = u'euphrates-5.17.1-stable'
+# OBELIX_BRANCH = u'dogmatix_5.17'
+
 
 #POOL_NAME = [u'AHV-REG-NODE-POOL-MASTER']
 GPU_POOL_NAME = [u'ahv-gpu-regression']
@@ -49,16 +72,17 @@ BUILD_TYPE = 'opt'
 NOS_URL = ''
 #NOS_URL = 'http://endor.dyn.nutanix.com/releases/Euphrates-5.15-stable-RC1/f322bb1e20845aadc476b89eaf0647397e8a3222/x86_64/opt/tar/nutanix_installer_package-opt-euphrates-5.15-stable-f322bb1e20845aadc476b89eaf0647397e8a3222-x86_64.tar.gz'
 
-#HYPERVISOR_BUILD_URL = 'http://endor.dyn.nutanix.com/builds/ahv-builds/20190916.231/iso/AHV-DVD-x86_64-el7.nutanix.20190916.231.iso'
+HYPERVISOR_BUILD_URL = 'http://endor.dyn.nutanix.com/GoldImages/AHV/20190916.294/iso/AHV-DVD-x86_64-el7.nutanix.20190916.294.iso'
 
-HYPERVISOR_BUILD_URL = ''
+# HYPERVISOR_BUILD_URL = ''
 FOUNDATION_BUILD_URL = ''
 #FOUNDATION_BUILD_URL = u'http://endor.dyn.nutanix.com/builds/foundation-builds/4.5/foundation-4.5-90-88e38e12-universal-release.x86_64.tar.gz'
 
 PC_URL = u'http://endor.dyn.nutanix.com/builds/PC-builds/' + PC_REL_BRANCH + '/'
-PC_COMMIT_ID = '3218a31e15584e368dc4c9b7abc4d99da585c8d2'
+PC_COMMIT_ID = 'd0773d2b870c9cf249d8cf8f620bb781287080dd'
 
-NOS_COMMIT_ID = '3218a31e15584e368dc4c9b7abc4d99da585c8d2'
+NOS_COMMIT_ID = 'd0773d2b870c9cf249d8cf8f620bb781287080dd'
+
 
 
 USE_NOS_BY_COMMIT_ID = {
@@ -151,6 +175,29 @@ UHURA_PAYLOAD_MINOR_REL['resource_manager_json'] = dict(PRISM_CENTRAL={
     }
 })
 UHURA_PAYLOAD_PC_MINOR_REL = UHURA_PAYLOAD_MINOR_REL
+UHURA_PAYLOAD_ERGON_PC_MINOR_REL = UHURA_PAYLOAD_PC_MINOR_REL.copy()
+UHURA_PAYLOAD_ERGON_PC_MINOR_REL[u'requested_hardware'] = {
+    u'hypervisor_version': None,
+    u'hypervisor': None,
+    u'imaging_options': {
+        u'datacenter': {
+            u'hyperv': {},
+            u'kvm': {},
+            u'vsphere': {},
+            u'use_host_names': False
+        },
+        u'min_host_cpu_cores': 6,
+        u'min_host_gb_ram': 30,
+        u'nos_url': NOS_URL,
+        u'redundancy_factor': u'default',
+        u'secondary_datacenters': {
+            u'vsphere': {}
+        },
+        u'hypervisor_url': ''
+    }
+}
+
+
 UHURA_PAYLOAD_NO_PC_NO_VC_MINOR_REL = {k: v for (k, v) in UHURA_PAYLOAD_MINOR_REL.items() if k != 'resource_manager_json'}
 UHURA_PAYLOAD_NO_PC_WITH_VC_MINOR_REL = UHURA_PAYLOAD_NO_PC_NO_VC_MINOR_REL.copy()
 UHURA_PAYLOAD_NO_PC_WITH_VC_MINOR_REL[u'requested_hardware'] = {
@@ -183,6 +230,4 @@ UHURA_PAYLOAD_NS_NO_VC_MINOR_REL['cluster_selection'] = {
         u'pool_name': [u'AHV_NODE_POOL_OSL'],
         u'by_node_pool': True
 }
-
-
 
