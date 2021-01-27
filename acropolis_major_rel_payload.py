@@ -11,10 +11,10 @@
 
 
 NUTEST_BRANCH = u'euphrates-5.19-stable'
-AOS_REL_BRANCH = u'euphrates-5.19-stable'
-PC_REL_BRANCH = u'euphrates-5.19-stable-pc-0'
+AOS_REL_BRANCH = u'euphrates-5.19.1-stable'
+PC_REL_BRANCH = u'euphrates-5.19-stable-pc-1'
 OBELIX_BRANCH = u'dogmatix_5.19'
-PC_OBELIX_BRANCH = u'euphrates-5.19-stable-pc-0'
+PC_OBELIX_BRANCH = u'euphrates-5.19-stable-pc-1'
 
 
 #NUTEST_BRANCH = u'master'
@@ -27,8 +27,6 @@ GPU_POOL_NAME = [u'ahv-gpu-regression']
 POOL_NAME = [u'AHV_NODE_POOL_OSL']
 SCALE_OUT_POOL_NAME = [u'acropolis_scale_Testing']
 
-V2 = "v2"
-PC_DOMAIN_NAME = "pc1.nutanix.com"
 
 BUILD_FOLDERS = 'x86_64'
 #BUILD_TYPE = 'opt'
@@ -53,9 +51,9 @@ HYPERVISOR_URL = ''
 
 
 PC_URL = u'http://endor.dyn.nutanix.com/builds/PC-builds/' + PC_REL_BRANCH + '/'
-PC_COMMIT_ID = '727027782a1b0c8715ab35ddf4a6329ddcd919e4'
+PC_COMMIT_ID = 'd16f9f491e077eb8f1d7382ed37ebc8cb736513d'
 
-NOS_COMMIT_ID = 'f2d0d3986afeec4fbcae6451def43044209e8ed7'
+NOS_COMMIT_ID = '20bdb87735f6e7cd227572085854461932b7af6c'
 
 
 USE_NOS_BY_COMMIT_ID = {
@@ -147,16 +145,6 @@ ACROPOLIS_PAYLOAD_MAJOR_REL['resource_manager_json'] = dict(PRISM_CENTRAL={
         u'nos_build_url': PC_URL + PC_COMMIT_ID + '/' + BUILD_TYPE + '/'
     }
 })
-# ACROPOLIS_PAYLOAD_MAJOR_REL['resource_manager_json'] = dict(PRISM_CENTRAL={
-#    u'scaleout': {
-#         u'enable_cmsp': True,
-#         u'iam': V2,
-#         u'pc_domain_name': PC_DOMAIN_NAME
-#     },
-#    u'build': {
-#        u'nos_build_url': PC_URL + PC_COMMIT_ID + '/' + BUILD_TYPE + '/'
-#    }
-# })
 ACROPOLIS_PAYLOAD_PC_MAJOR_REL = ACROPOLIS_PAYLOAD_MAJOR_REL.copy()
 ACROPOLIS_PAYLOAD_PC_MAJOR_REL['plugins'] = {u'post_run': [
         {u'args': {},
@@ -168,6 +156,7 @@ ACROPOLIS_PAYLOAD_PC_MAJOR_REL['plugins'] = {u'post_run': [
          u'name': u'UpdateBranchPlugin',
          u'stage': u'post_run'}
         ]}
+
 ACROPOLIS_PAYLOAD_NO_PC_MAJOR_REL = {k: v for (k, v) in ACROPOLIS_PAYLOAD_MAJOR_REL.items() if k != 'resource_manager_json'}
 ACROPOLIS_PAYLOAD_NO_PC_GUEST_OS_MAJOR_REL = ACROPOLIS_PAYLOAD_NO_PC_MAJOR_REL.copy()
 ACROPOLIS_PAYLOAD_NO_PC_GUEST_OS_MAJOR_REL['plugins'] = {u'post_run': [
@@ -188,6 +177,28 @@ ACROPOLIS_PAYLOAD_GPU_MAJOR_REL['cluster_selection'] = {
 }
 ACROPOLIS_PAYLOAD_GPU_MAJOR_REL['tester_tags'] = [u'v3.1', u'max_deployments__1', u'official']
 
+
+ACROPOLIS_PAYLOAD_GPU_PC_MAJOR_REL = ACROPOLIS_PAYLOAD_PC_MAJOR_REL.copy()
+ACROPOLIS_PAYLOAD_GPU_PC_MAJOR_REL['tester_tags'] = [u'v3.1', u'max_deployments__4', u'official']
+ACROPOLIS_PAYLOAD_GPU_PC_MAJOR_REL['cluster_selection'] = {
+        u'pool_name': GPU_POOL_NAME,
+        u'by_node_pool': True
+}
+
+
+
+ACROPOLIS_PAYLOAD_PC_UI_MAJOR_REL = ACROPOLIS_PAYLOAD_MAJOR_REL.copy()
+ACROPOLIS_PAYLOAD_PC_UI_MAJOR_REL['resource_manager_json'] = dict(
+    PRISM_CENTRAL={
+    u'build': {
+        u'nos_build_url': PC_URL + PC_COMMIT_ID + '/' + BUILD_TYPE + '/'
+    }},
+    SELENIUM_VM = {
+    "software": {
+        "build_url": "http://endor.dyn.nutanix.com/GoldImages/selenlium_windows_image/selenium_auto_start_win7.img"
+    }
+}
+)
 
 ACROPOLIS_PAYLOAD_VNUMA_MAJOR_REL = ACROPOLIS_PAYLOAD_NO_PC_MAJOR_REL.copy()
 ACROPOLIS_PAYLOAD_VNUMA_MAJOR_REL['cluster_selection'] = {
@@ -318,9 +329,6 @@ ACROPOLIS_PAYLOAD_PC_OVA_HYPERVISOR_ANY_MAJOR_REL[u'requested_hardware'] = {
 
 
 ACROPOLIS_PAYLOAD_PC_CATALOG_MAJOR_REL = ACROPOLIS_PAYLOAD_MAJOR_REL.copy()
-ACROPOLIS_PAYLOAD_PC_CATALOG_MAJOR_REL["emails"] = [u'velurusruthi.naidu@nutanix.com', u'bhawani.singh@nutanix.com',
-                                                    u'acropolis-catalog@nutanix.com', u'vivekanandan.k@nutanix.com',
-                                                    u'ritopa.dey@nutanix.com']
 ACROPOLIS_PAYLOAD_PC_CATALOG_MAJOR_REL['plugins'] = {u'post_run': [
         {u'args': {},
          u'description': u'Sends mail to the recipients.',
@@ -331,6 +339,10 @@ ACROPOLIS_PAYLOAD_PC_CATALOG_MAJOR_REL['plugins'] = {u'post_run': [
          u'name': u'UpdateBranchPlugin',
          u'stage': u'post_run'}
         ]}
+
+ACROPOLIS_PAYLOAD_PC_CATALOG_MAJOR_REL["emails"] = [u'velurusruthi.naidu@nutanix.com', u'bhawani.singh@nutanix.com',
+                                                    u'acropolis-catalog@nutanix.com', u'vivekanandan.k@nutanix.com',
+                                                    u'ritopa.dey@nutanix.com']
 
 ACROPOLIS_PAYLOAD_PC_CATALOG_HYPERVISOR_ANY_MAJOR_REL = ACROPOLIS_PAYLOAD_PC_CATALOG_MAJOR_REL.copy()
 ACROPOLIS_PAYLOAD_PC_CATALOG_HYPERVISOR_ANY_MAJOR_REL['tester_tags'].append(u'nutest__resources')
