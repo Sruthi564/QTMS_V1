@@ -179,4 +179,3 @@ class SendEmail(object):
 #
 # b = SendEmail(branch, tasks, jita_task_link, email_text, email_msg, emails)
 # b.build_email()
-
